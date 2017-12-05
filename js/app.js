@@ -86,7 +86,7 @@ window.addEventListener('click', (e) => {
       let heart = tries[tries.length - missed];
       heart.getElementsByTagName("img")[0].src="images/lostHeart.png";
     }
-    checkWin()
+    checkWin();
   }
 });
 
