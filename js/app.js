@@ -4,7 +4,7 @@ const overlay = document.querySelector('#overlay');
 const list = document.querySelector('#phrase ul');
 const startGame = document.querySelector('.btn__reset');
 
-const show = document.querySelectorAll('.show');
+
 const tries = document.querySelectorAll('.tries')
 const title = document.querySelector('.title');
 const chosen = qwerty.querySelectorAll('.button')
@@ -53,6 +53,7 @@ function checkLetter(target) {
         return null;
     }
   }
+  const show = document.querySelectorAll('.show');
 }
 
 function checkWin() {
