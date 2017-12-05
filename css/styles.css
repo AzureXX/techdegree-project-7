@@ -93,6 +93,8 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  transition-property: color, background-color;
+  transition-duration: 2s;
 }
 
 .space {
@@ -102,6 +104,7 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+
 }
 
 /* Keyboard */
