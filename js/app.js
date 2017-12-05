@@ -37,10 +37,10 @@ function addPhraseToDisplay(arr){
     }
 
 }
-const letter = document.querySelectorAll('.letter');
+
 const phraseArray = getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
-
+const letter = document.querySelectorAll('.letter');
 
 function checkLetter(target) {
     var letterClicked = target.textContent.toLowerCase();
