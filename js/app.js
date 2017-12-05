@@ -3,7 +3,7 @@ const phrase = document.querySelector('#phrase');
 const overlay = document.querySelector('#overlay');
 const list = document.querySelector('#phrase ul');
 const startGame = document.querySelector('.btn__reset');
-const letter = document.querySelectorAll('.letter');
+
 const show = document.querySelectorAll('.show');
 const tries = document.querySelectorAll('.tries')
 const title = document.querySelector('.title');
@@ -30,10 +30,12 @@ function addPhraseToDisplay(arr){
 
       if (arr[i] !== " "){
         li.className = "letter";
+
       } else {
         li.className = "space";
       }
     }
+    const letter = document.querySelectorAll('.letter');
 }
 
 const phraseArray = getRandomPhraseArray(phrases);
