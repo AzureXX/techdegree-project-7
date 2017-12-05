@@ -55,7 +55,7 @@ function checkLetter(target) {
     }
   }
 
-
+const show = document.querySelectorAll('.show');
 function checkWin() {
   if(show.length == letter.length) {
     overlay.className ="win";
@@ -88,7 +88,7 @@ window.addEventListener('click', (e) => {
       let heart = tries[tries.length - missed];
       heart.getElementsByTagName("img")[0].src="images/lostHeart.png";
     }
-    const show = document.querySelectorAll('.show');
+
     checkWin();
   }
 });
