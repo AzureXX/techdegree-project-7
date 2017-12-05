@@ -5,6 +5,7 @@ const list = document.querySelector('#phrase ul');
 const startGame = document.querySelector('.btn__reset');
 const letter = document.querySelectorAll('.letter');
 const show = document.querySelectorAll('.show');
+const tries = document.querySelectorAll('.tries')
 //phrases list
 const phrases = ["Winter is Coming", "Ours is the Fury", "We Do Not Sow", "Growing Strong", "Fire and Blood"];
 
@@ -61,7 +62,13 @@ window.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
     e.target.className = 'chosen';
     e.target.disabled = true;
-    
+
     let letterFound = checkLetter(e.target);
+
+    if(letterFound == "null") {
+      missed +=1;
+      let heart = tries[tries.length - missed];
+      heart.getElementsByTagName("img")[0].src="images/lostHeart.png";
+    }
   }
 });
