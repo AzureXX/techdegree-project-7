@@ -3,7 +3,7 @@ const phrase = document.querySelector('#phrase');
 const overlay = document.querySelector('#overlay');
 const list = phrase.querySelector('ul');
 const startGame = document.querySelector('.btn__reset');
-const show = document.querySelectorAll('.show');
+
 const tries = document.querySelectorAll('.tries');
 const title = document.querySelector('.title');
 const chosen = qwerty.querySelectorAll('.button');
@@ -42,17 +42,19 @@ const letter = document.querySelectorAll('.letter');
 
 function checkLetter(target) {
     var letterClicked = target.textContent.toLowerCase();
-
+    var answer= false
     for(let i = 0; i< letter.length; i++) {
       if(letterClicked == letter[i].textContent) {
         letter[i].classList.add("show");
-        return letterClicked;
-      } else {
-        return null;
+        answer= true;
+      }}
+    if (answer) {
+      return letterClicked;
+    } else {
+      return null;
     }
   }
 
-}
 
 function checkWin() {
   if(show.length == letter.length) {
@@ -81,11 +83,12 @@ window.addEventListener('click', (e) => {
 
     let letterFound = checkLetter(e.target);
 
-    if(letterFound == "null") {
+    if(letterFound == null) {
       missed +=1;
       let heart = tries[tries.length - missed];
       heart.getElementsByTagName("img")[0].src="images/lostHeart.png";
     }
+    const show = document.querySelectorAll('.show');
     checkWin();
   }
 });
