@@ -107,10 +107,12 @@ startGame.addEventListener('click', (e) => {
             list.removeChild(list.children[0]);
         }
 
-        for (let i = 0; i < chosen.length; i++) {
-            chosen[i].classList.remove('chosen');
-            chosen[i].disabled = false;
+        while (chosen.length > 0) {
+            chosen[0].disabled = false;
+            chosen[0].classList.remove('chosen');
+
         }
+
 
         overlay.classList.remove('win', 'lose');
 
