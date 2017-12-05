@@ -35,9 +35,9 @@ function addPhraseToDisplay(arr){
         li.className = "space";
       }
     }
-    const letter = document.querySelectorAll('.letter');
-}
 
+}
+const letter = document.querySelectorAll('.letter');
 const phraseArray = getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
 
@@ -53,9 +53,9 @@ function checkLetter(target) {
         return null;
     }
   }
-  const show = document.querySelectorAll('.show');
-}
 
+}
+const show = document.querySelectorAll('.show');
 function checkWin() {
   if(show.length == letter.length) {
     overlay.className ="win"
@@ -113,7 +113,7 @@ startGame.addEventListener('click', (e) => {
 
         overlay.classList.remove('win', 'lose');
 
-        const newPhrase = getRandomPhraseAsArray(phrases);
+        const newPhrase = getRandomPhraseArray(phrases);
         addPhraseToDisplay(newPhrase);
     }
 });
