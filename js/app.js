@@ -6,6 +6,7 @@ const startGame = document.querySelector('.btn__reset');
 const letter = document.querySelectorAll('.letter');
 const show = document.querySelectorAll('.show');
 const tries = document.querySelectorAll('.tries')
+const title = document.querySelector('.title');
 //phrases list
 const phrases = ["Winter is Coming", "Ours is the Fury", "We Do Not Sow", "Growing Strong", "Fire and Blood"];
 
@@ -51,6 +52,19 @@ function checkLetter(target) {
   }
 }
 
+function checkWin() {
+  if(show.length == letter.length) {
+    overlay.className ="win"
+    overlay.style.display = "";
+    title.innerHTML = "You win"
+    startGame.innerHTML="reset"
+  }else if(missed >=5) {
+    overlay.className ="lose"
+    overlay.style.display = "";
+    title.innerHTML = "You lose"
+    startGame.innerHTML="reset"
+  }
+}
 
 
 //events
@@ -70,5 +84,6 @@ window.addEventListener('click', (e) => {
       let heart = tries[tries.length - missed];
       heart.getElementsByTagName("img")[0].src="images/lostHeart.png";
     }
+    checkWin()
   }
 });
