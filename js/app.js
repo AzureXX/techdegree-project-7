@@ -6,7 +6,7 @@ const startGame = document.querySelector('.btn__reset');
 const letter = document.querySelectorAll('.letter');
 const show = document.querySelectorAll('.show');
 //phrases list
-const phrases = ["Winter is Coming", "Ours is the Fury", "We Do Not Sow", "Growing Strong", "Fire and Blood"]
+const phrases = ["Winter is Coming", "Ours is the Fury", "We Do Not Sow", "Growing Strong", "Fire and Blood"];
 
 //counters
 let missed = 0;
@@ -16,7 +16,7 @@ let missed = 0;
 
 function getRandomPhraseArray(arr){
     return arr[Math.floor(Math.random() * arr.length)].toLowerCase().split("");
-};
+}
 
 
 function addPhraseToDisplay(arr){
@@ -26,12 +26,12 @@ function addPhraseToDisplay(arr){
       li.textContent = arr[i];
 
       if (arr[i] !== " "){
-        li.className = "letter"
+        li.className = "letter";
       } else {
-        li.className = "space"
+        li.className = "space";
       }
     }
-};
+}
 
 const phraseArray = getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
@@ -48,7 +48,7 @@ function checkLetter(target) {
         return null;
     }
   }
-};
+}
 
 
 
@@ -61,7 +61,7 @@ window.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
     e.target.className = 'chosen';
     e.target.disabled = true;
-
-    let letterFound = checkLetter(e.target)
+    
+    let letterFound = checkLetter(e.target);
   }
 });
