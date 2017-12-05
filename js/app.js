@@ -1,54 +1,67 @@
-const qwerty = document.getElementById('qwerty');
-const phrase = document.getElementById('phrase');
+const qwerty = document.querySelector('#qwerty');
+const phrase = document.querySelector('#phrase');
+const overlay = document.querySelector('#overlay');
+const list = document.querySelector('#phrase ul');
+const startGame = document.querySelector('.btn__reset');
+const letter = document.querySelectorAll('.letter');
+const show = document.querySelectorAll('.show');
+//phrases list
+const phrases = ["Winter is Coming", "Ours is the Fury", "We Do Not Sow", "Growing Strong", "Fire and Blood"]
+
+//counters
 let missed = 0;
-const startGame = document.getElementsByClassName('btn__reset')[0];
-let phrases = ["winter is coming", "ours is the fury", "we do not sow", "growing strong", "fire and blood"]
 
+//Functions
 
-startGame.addEventListener('click', () => {
-  document.getElementById('overlay').style.display = "none";
-});
 
 function getRandomPhraseArray(arr){
-    const index = Math.floor(Math.random() * arr.length);
-    letterList = arr[index].split("");
-    return letterList;
+    return arr[Math.floor(Math.random() * arr.length)].toLowerCase().split("");
 };
 
 
 function addPhraseToDisplay(arr){
-    let list = document.querySelector('#phrase ul');
-
     for(let i = 0; i < arr.length; i++) {
-      var li = document.createElement("LI");
-      var t = document.createTextNode(arr[i]);
-      li.appendChild(t);
-      var listItem = list.appendChild(li);
+      const li = document.createElement("LI");
+      list.appendChild(li);
+      li.textContent = arr[i];
 
-      if (arr[i] === " "){
-        listItem.className = "space"
+      if (arr[i] !== " "){
+        li.className = "letter"
       } else {
-        listItem.className = "letter"
+        li.className = "space"
       }
     }
-    return listItem;
 };
 
 const phraseArray = getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
 
+
 function checkLetter(target) {
-    var letter = document.querySelectorAll(".letter");
+    var letterClicked = target.textContent.toLowerCase();
+
     for(let i = 0; i< letter.length; i++) {
-      if(target == letter[i]) {
-        letter[i].className = "show";
+      if(letterClicked == letter[i].textContent) {
+        letter[i].classList.add("show");
+        return letterClicked;
       } else {
         return null;
     }
   }
 };
 
-qwerty.addEventListener("click", (event) => {
-  var target = event.target.innerHTML;
-  checkLetter(target);
+
+
+//events
+startGame.addEventListener('click', () => {
+  overlay.style.display = "none";
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON') {
+    e.target.className = 'chosen';
+    e.target.disabled = true;
+
+    let letterFound = checkLetter(e.target)
+  }
 });
