@@ -7,6 +7,7 @@ const letter = document.querySelectorAll('.letter');
 const show = document.querySelectorAll('.show');
 const tries = document.querySelectorAll('.tries')
 const title = document.querySelector('.title');
+const chosen = qwerty.querySelectorAll('.button')
 //phrases list
 const phrases = ["Winter is Coming", "Ours is the Fury", "We Do Not Sow", "Growing Strong", "Fire and Blood"];
 
@@ -56,13 +57,13 @@ function checkWin() {
   if(show.length == letter.length) {
     overlay.className ="win"
     overlay.style.display = "";
-    title.innerHTML = "You win"
-    startGame.innerHTML="reset"
+    title.textContent = "You win"
+    startGame.textContent="Reset"
   }else if(missed >=5) {
     overlay.className ="lose"
     overlay.style.display = "";
-    title.innerHTML = "You lose"
-    startGame.innerHTML="reset"
+    title.textContent = "You lose"
+    startGame.textContent="Reset"
   }
 }
 
@@ -86,4 +87,30 @@ window.addEventListener('click', (e) => {
     }
     checkWin()
   }
+});
+
+startGame.addEventListener('click', (e) => {
+    if (e.target.textContent === 'Reset') {
+
+        missed = 0;
+
+        for (let i = 0; i < tries.length; i++) {
+            const img = tries[i].getElementsByTagName('img')[0];
+            img.src = 'images/liveHeart.png';
+        }
+
+        while (list.children.length > 0) {
+            list.removeChild(list.children[0]);
+        }
+
+        for (let i = 0; i < chosen.length; i++) {
+            chosen[i].classList.remove('chosen');
+            chosen[i].disabled = false;
+        }
+
+        overlay.classList.remove('win', 'lose');
+
+        const newPhrase = getRandomPhraseAsArray(phrases);
+        addPhraseToDisplay(newPhrase);
+    }
 });
