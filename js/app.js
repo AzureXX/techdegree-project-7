@@ -48,19 +48,7 @@ function checkLetter(target) {
   }
 };
 
-qwerty.addEventListener("click", (event) =>{
+qwerty.addEventListener("click", (event) => {
   var target = event.target.innerHTML;
   checkLetter(target);
 });
-
-
-// qwerty.addEventListener("click", (event) => {
-//   var listItem = document.querySelectorAll(".letter");
-//   var letter = event.target.innerHTML;
-//     for(let i = 0; i< listItem.length; i++) {
-//       if(letter === listItem[i] ) {
-//         listItem[i].className = "show";
-//       } else {
-//         return null;
-//     }
-// }});
