@@ -3,10 +3,10 @@ const phrase = document.querySelector('#phrase');
 const overlay = document.querySelector('#overlay');
 const list = phrase.querySelector('ul');
 const startGame = document.querySelector('.btn__reset');
-
+const chosen = qwerty.getElementsByClassName('chosen');
 const tries = document.querySelectorAll('.tries');
 const title = document.querySelector('.title');
-const chosen = qwerty.querySelectorAll('.button');
+
 //phrases list
 const phrases = ["Winter is Coming", "Ours is the Fury", "We Do Not Sow", "Growing Strong", "Fire and Blood"];
 
@@ -38,7 +38,7 @@ function addPhraseToDisplay(arr){
 
 const phraseArray = getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
-const letter = document.querySelectorAll('.letter');
+const letter = document.getElementsByClassName('letter');
 
 function checkLetter(target) {
     var letterClicked = target.textContent.toLowerCase();
@@ -55,9 +55,9 @@ function checkLetter(target) {
     }
   }
 
-const show = document.querySelectorAll('.show');
+const show = document.getElementsByClassName('show');
 function checkWin() {
-  if(show.length == letter.length) {
+  if(show.length === letter.length) {
     overlay.className ="win";
     overlay.style.display = "";
     title.textContent = "You win";
