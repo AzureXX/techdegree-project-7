@@ -1,13 +1,12 @@
 const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
 const overlay = document.querySelector('#overlay');
-const list = document.querySelector('#phrase ul');
+const list = phrase.querySelector('ul');
 const startGame = document.querySelector('.btn__reset');
-
-
-const tries = document.querySelectorAll('.tries')
+const show = document.querySelectorAll('.show');
+const tries = document.querySelectorAll('.tries');
 const title = document.querySelector('.title');
-const chosen = qwerty.querySelectorAll('.button')
+const chosen = qwerty.querySelectorAll('.button');
 //phrases list
 const phrases = ["Winter is Coming", "Ours is the Fury", "We Do Not Sow", "Growing Strong", "Fire and Blood"];
 
@@ -30,7 +29,6 @@ function addPhraseToDisplay(arr){
 
       if (arr[i] !== " "){
         li.className = "letter";
-
       } else {
         li.className = "space";
       }
@@ -55,18 +53,18 @@ function checkLetter(target) {
   }
 
 }
-const show = document.querySelectorAll('.show');
+
 function checkWin() {
   if(show.length == letter.length) {
-    overlay.className ="win"
+    overlay.className ="win";
     overlay.style.display = "";
-    title.textContent = "You win"
-    startGame.textContent="Reset"
+    title.textContent = "You win";
+    startGame.textContent="Reset";
   }else if(missed >=5) {
-    overlay.className ="lose"
+    overlay.className ="lose";
     overlay.style.display = "";
-    title.textContent = "You lose"
-    startGame.textContent="Reset"
+    title.textContent = "You lose";
+    startGame.textContent="Reset";
   }
 }
 
